@@ -5,7 +5,6 @@
 #cc5a3f - red highlights
 #e9e8e4 - light gray card colour
 
-
 */
 
 body {
@@ -15,20 +14,20 @@ body {
     color: #272727 ;
 }
 
-/* .container div {
+.container div {
     border: 1px solid black;
-} */
+}
 
 .container {
     height: 100vh;
     display: grid;
-    grid-template: 1fr 4fr / 1fr 4fr;
+    grid-template: 1fr 4fr / minmax(300px, 400px) 4fr;
 }
 
 .header {
     grid-column: 2 / 3;
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 1.5fr;
 }
 
 .upper-header {
