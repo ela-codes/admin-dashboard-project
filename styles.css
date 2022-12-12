@@ -104,6 +104,7 @@ img[alt="notification-bell"] {
     grid-template-columns: 2fr 1fr;
     align-items: center;
     padding-bottom: 30px;
+    gap: 30px;
 }
 
 .lower-header-left {
@@ -198,6 +199,16 @@ img[alt="notification-bell"] {
 
 .card {
     padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 30px;
+}
+
+.link {
+    justify-self: right;
+}
+
+.link img {
+    height: 25px;
 }
 
 .announcements {
