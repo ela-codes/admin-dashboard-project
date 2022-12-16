@@ -19,15 +19,12 @@ body {
 h1, h2, h3, h4, h5 {
     margin: 0;
 }
-/* 
-.container div {
-    border: 1px dotted gray;
-} */
+
 
 .container {
     height: 100vh;
     display: grid;
-    grid-template: 1fr 4fr / minmax(350px, 400px) 1fr;
+    grid-template: 1fr 4fr / 350px 1fr;
 }
 
 .header {
@@ -66,15 +63,21 @@ input[type=search] {
     font-size: 1rem;
 }
 
+input::placeholder {
+    color: var(--text-color);
+    opacity: 0.4;
+}
+
 input[type=search]:focus {
-    outline: none;
-    box-shadow: 0 0 3px var(--darkgray);
+    outline: var(--mutedred) solid 2px;
+    box-shadow: 0 0 5px var(--mutedred);
 }
 
 input[type=search]::-webkit-search-cancel-button{
     position: relative;
     right: 20px; 
     opacity: 0.3;
+    cursor: pointer;
 }
 
 .upper-header-right {
@@ -103,14 +106,14 @@ img[alt="notification-bell"] {
 
 .lower-header-left {
     display: grid;
-    grid-template-columns: 200px 2fr;
+    grid-template-columns: 130px 1fr;
     align-items: center;
-
+    column-gap: 20px;
     font-weight: 600;
 }
 
 .header-greeting > span {
-    font-size: 22px;
+    font-size: 16px;
 }
 
 
@@ -119,18 +122,23 @@ img[alt="notification-bell"] {
     grid-auto-flow: column;
     grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
     justify-content: right;
-    column-gap: 20px;
+    column-gap: 30px;
     padding-right: 100px;
 }
 
 .lower-header-right button {
     height: 50px;
-    width: 130px;
+    width: 140px;
     border-radius: 30px;
     border: 0;
     font-weight: 600;
     font-size: 16px;
+    background-color: var(--mutedred);
+}
+
+.lower-header-right button:hover {
     background-color: var(--lightgray);
+    cursor: pointer;
 }
 
 .sidebar {
@@ -138,17 +146,18 @@ img[alt="notification-bell"] {
     grid-row: 1 / 3;
     display: grid;
     grid-template-rows: 150px 1fr 2fr;
-    padding-left: 40px;
+    padding-left: 35px;
 
     background-color: var(--lightgray);
     box-shadow: 0 0 6px var(--lightgray);
     font-weight: 600;
 }
 
-.sidebar-title {
+.sidebar-title {    
     display: flex;
     align-items: center;
     column-gap: 20px;
+
 }
 
 .sidebar-lower,
@@ -159,49 +168,59 @@ img[alt="notification-bell"] {
 
 }
 
+.title img {
+    height: 32px;
+    padding-left: 6px;
+}
+
 .title {
     display: grid;
     grid-template-columns: 36px 1fr;
     align-items: center;
     gap: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 30px;
+    padding: 20px 0px 20px 0px;
+    font-size: 24px;
+    align-content: center;
+    cursor: pointer;
+}
+
+.title:hover {
+    background-color: var(--mutedred);
 }
 
 .sidebar-title > h1 {
-    font-size: 40px;
+    font-size: 38px;
 }
 
 .main-content {
     grid-row: 2 / 3;
     display: grid;
-    grid-template: 1fr 1fr / 3fr 1fr;
-    padding-top: 40px;
-    padding-left: 40px;
+    grid-template: repeat(2, 1fr) / minmax(1050px, 3fr) 420px;
+    row-gap: 40px; 
+    padding: 40px 0px 40px 40px;
     background-color: var(--off-white);
 }
 
 .projects {
     grid-area: 1 / 1 / 3 / 2;
+    width: 100%;
 }
 
 .project-content {
-    padding: 20px;
+    padding-top: 20px;
+    padding-right: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 470px);
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
     grid-template-rows: repeat(auto-fit, 1fr);
-    grid-auto-rows: 300px;
-    gap: 50px;
+    grid-auto-rows: 1fr;
+    gap: 40px;
+
 }
 
 .card {
-    width: 460px;
-    height: 300px;
     border-radius: 15px;
     box-shadow: 10px 10px 20px var(--lightgray);
     background-color: var(--mutedred);
-
     display: grid;
     grid-template-columns: 12px 1fr;
 }
@@ -214,13 +233,14 @@ img[alt="notification-bell"] {
     flex-direction: column;
     justify-content: space-around;
     background-color: white;
-    padding: 30px;
+    padding: 40px;
     font-size: 17px;
     color: var(--darkgray);
 }
 
 .card h3 {
     color: var(--text-color);
+    padding-bottom: 20px;
 }
 
 .link {
@@ -266,13 +286,14 @@ img[alt="notification-bell"] {
 
 .card-faves {
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 100px 1fr;
     padding: 15px 15px 15px 0px;
     align-items: center;
 }
 
 .card-faves img {
     height: 60px;
+    width: 60px;
 }
 
 .user-tag {
